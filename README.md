@@ -39,11 +39,24 @@ ants
 
 ### Ant Colony Optimization Approach
 
+
+#### the forward way
 1. send a message to a random network and give it a random target
 2. keep sending it to networks till it finds its target
 3. trace back to the source network , recording the time taken for each step along the way 
 4. use that ping time to influence which networks messages are being sent to
-5. run over an over again to optimize message paths for each network in the cluster
+5. repeat for each network trying to minimize the time that average time of all the packets traveling through this network is minimized 
+
+#### the ass backwards way
+1. look at the travel time sources and messages coming to the network node
+2. use this to influence where packets are going 
+3. repeat for each network trying to minimize the time that average time of all the packets traveling through this network is minimized
+ 
 
 #### optimizations of the optimizer 
 1. prefer targets based on the most common messages through that network
+
+#### problems 
+1. may be difficult to find better paths unless the parameters are tuned 
+2. forward way requires custom
+message type and back tracking 
